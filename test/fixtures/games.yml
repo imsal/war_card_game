@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  session_id: MyString
+  deck_1: MyString
+  deck_2: MyString
+  user_name: MyString
+  move: 1
+  user_1_points: 1
+  user_2_points: 1
+
+two:
+  session_id: MyString
+  deck_1: MyString
+  deck_2: MyString
+  user_name: MyString
+  move: 1
+  user_1_points: 1
+  user_2_points: 1

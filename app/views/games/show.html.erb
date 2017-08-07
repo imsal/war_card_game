@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Session:</strong>
+  <%= @game.session_id %>
+</p>
+
+<p>
+  <strong>Deck 1:</strong>
+  <%= @game.deck_1 %>
+</p>
+
+<p>
+  <strong>Deck 2:</strong>
+  <%= @game.deck_2 %>
+</p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @game.user_name %>
+</p>
+
+<p>
+  <strong>Move:</strong>
+  <%= @game.move %>
+</p>
+
+<p>
+  <strong>User 1 points:</strong>
+  <%= @game.user_1_points %>
+</p>
+
+<p>
+  <strong>User 2 points:</strong>
+  <%= @game.user_2_points %>
+</p>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
