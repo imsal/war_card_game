@@ -1,10 +1,6 @@
 module Deck
 
-  #<%= image_tag ('cards/10_of_clubs') %>
-  # creates an array of 52 cards
-
   private
-
 
   # creates the initial deck and returns two sets of strings
   def create_values_and_split
@@ -29,6 +25,21 @@ module Deck
     return user_1_deck,user_2_deck
 
   end
+
+  # returns the amount of cards left for a given string.
+  def count_number_of_cards_left(string)
+    string.split(',').count
+  end
+
+  #
+  def pull_one_card_from_deck()
+    string.split(',')
+  end
+
+
+
+
+
 
   def card_image_name (input) # 23
     suits = ['clubs', 'diamonds', 'hearts', 'spades']
@@ -64,6 +75,8 @@ module Deck
   def card_image(card_hash)
     "cards/#{card_hash[0][:name]}_of_#{card_hash[0][:suit]}"
   end
+
+
 
 
 end
