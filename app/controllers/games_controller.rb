@@ -2,7 +2,17 @@ class GamesController < ApplicationController
   include Deck
   before_action :set_game, only: [:show, :edit, :update, :destroy]
   before_action :check_correct_user_from_session, only: [:show]
-  # before_action :load_game_from_session_id, only: [:show]
+
+  # pulls session_id from session to restore last game
+  def load_game_from_session_id
+    if session[:id]
+      redirect_to Game.find_by_session_id(session[:id])
+    else
+      flash[:notice] = "We could not find a past session game. Please create a new game."
+      redirect_to root_url
+    end
+  end
+
 
   # GET /games
   # GET /games.json
@@ -97,16 +107,13 @@ class GamesController < ApplicationController
       params.require(:game).permit(:user_name) # :session_id, :move, :user_1_cards_left, :user_2_cards_left, :user_1_deck, :user_2_deck,
     end
 
-    # pulls session_id from session to restore last game
-    def load_game_from_session_id
-    end
+
 
     # check that correct user is playing and redirects if otherwise
     def check_correct_user_from_session
-
       if session[:id] != @game.session_id
         # redirect_to root_url
-        redirect_to Game.find_by_session_id(session[:id])
+        redirect_to load_path
         flash[:notice] = 'This is not your game! Redirected to last played game.'
       end
     end
