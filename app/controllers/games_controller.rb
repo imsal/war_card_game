@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
+  include Deck
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  # before_action :load_game_from_session_id, only: [:show]
 
   # GET /games
   # GET /games.json
@@ -26,8 +28,14 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
 
+    @game.user_1_deck, @game.user_2_deck = create_values_and_split
+
+
     respond_to do |format|
       if @game.save
+
+        session[:id] = @game.session_id
+
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
         format.json { render :show, status: :created, location: @game }
       else
@@ -69,6 +77,11 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:session_id, :deck_1, :deck_2, :user_name, :move, :user_1_points, :user_2_points)
+      params.require(:game).permit(:user_name) # :session_id, :move, :user_1_cards_left, :user_2_cards_left, :user_1_deck, :user_2_deck,
     end
+
+    # pulls session_id from session to restore last game
+    def load_game_from_session_id
+    end
+
 end

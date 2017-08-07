@@ -1,5 +1,7 @@
 {
   "name": "war_card_game",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
 }

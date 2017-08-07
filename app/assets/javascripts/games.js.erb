@@ -1,0 +1,32 @@
+var ready = function(){
+
+
+// this function will place a card facing down based on the argument
+function downface_card(card_number){
+  if (card_number == 1) {
+    // $("#card-1").css("background-color", "red" );
+    $("#card-1").css("background-image", ("url('" + "<%= asset_url 'cards/black_card_back.png' %>" + "')") );
+
+    // $("#card-2").css("background-image", ("url('" + "<%= asset_url 'cards/6_of_clubs.png' %>" + "')") );
+  } else if (card_number == 4) {
+    $("#card-4").css("background-image", ("url('" + "<%= asset_url 'cards/black_card_back.png' %>" + "')") );
+  }
+}
+
+
+// initialize
+downface_card(1);
+downface_card(4);
+
+
+
+
+
+} // var ready
+
+
+
+// runs the script when a page is refreshed
+$(document).ready(ready);
+// runs the script when a page is accessed via turbolinks (link_to)
+$(document).on('turbolinks:load', ready);
