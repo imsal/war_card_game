@@ -1,0 +1,14 @@
+<%= form_for @game, method: :patch do |f| %>
+
+<%= f.hidden_field :user_1_deck %>
+<%= f.hidden_field :user_2_deck %>
+<%= f.hidden_field :user_1_cards_left %>
+<%= f.hidden_field :user_2_cards_left %>
+
+<%= f.submit 'eval' %>
+
+<!-- <% provide :evaluate_button do %> -->
+
+<!-- <% end %> -->
+
+<% end %>

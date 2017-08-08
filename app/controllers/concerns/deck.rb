@@ -33,12 +33,8 @@ module Deck
 
   #
   def pull_one_card_from_deck()
-    string.split(',')
+    string.split(',')[0]
   end
-
-
-
-
 
 
   def card_image_name (input) # 23
@@ -61,22 +57,20 @@ module Deck
   end # => 7_of_spades
 
 
-  def compare_cards(a,b)
-    if a[0][:worth] > b[0][:worth]
-      # a wins
-    elsif a[0][:worth] < b[0][:worth]
-      # b wins
-    else
-      # war
-    end
-  end
+  # def compare_cards(a,b)
+  #   if a[0][:worth] > b[0][:worth]
+  #     # a wins
+  #   elsif a[0][:worth] < b[0][:worth]
+  #     # b wins
+  #   else
+  #     # war
+  #   end
+  # end
 
 
   def card_image(card_hash)
     "cards/#{card_hash[0][:name]}_of_#{card_hash[0][:suit]}"
   end
-
-
 
 
 end
